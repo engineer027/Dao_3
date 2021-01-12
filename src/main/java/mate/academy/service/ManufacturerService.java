@@ -1,7 +1,7 @@
 package mate.academy.service;
 
-import mate.academy.model.Manufacturer;
 import java.util.List;
+import mate.academy.model.Manufacturer;
 
 public interface ManufacturerService {
     Manufacturer create(Manufacturer manufacturer);

@@ -3,14 +3,14 @@ package mate.academy;
 import mate.academy.lib.Injector;
 import mate.academy.model.Manufacturer;
 import mate.academy.service.ManufacturerService;
-import mate.academy.service.ManufacturerServiceImpl;
 
 public class Application {
 
     private static final Injector injector = Injector.getInstance("mate.academy");
 
     public static void main(String[] args) {
-        ManufacturerService manufacturerService = (ManufacturerService) injector.getInstance(ManufacturerService.class);
+        ManufacturerService manufacturerService = (ManufacturerService) injector
+                .getInstance(ManufacturerService.class);
 
         Manufacturer manufacturerOne = new Manufacturer("ZAZ", "UA");
         Manufacturer manufacturerTwo = new Manufacturer("BMW", "DE");
