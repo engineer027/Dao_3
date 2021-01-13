@@ -28,8 +28,8 @@ public class Car {
         this.manufacturer = manufacturer;
     }
 
-    public void setDrivers(Driver driver) {
-        this.drivers.add(driver);
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
     }
 
     public Long getId() {

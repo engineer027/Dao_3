@@ -8,6 +8,9 @@ import mate.academy.service.CarService;
 import mate.academy.service.DriverService;
 import mate.academy.service.ManufacturerService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
 
     private static final Injector injector = Injector.getInstance("mate.academy");
@@ -67,9 +70,14 @@ public class Application {
         Car carTwo = new Car("BMW", manufacturerTwo);
         Car carThree = new Car("Skoda", manufacturerThree);
 
-        carOne.setDrivers(driverOne);
-        carTwo.setDrivers(driverTwo);
-        carThree.setDrivers(driverThree);
+        List<Driver> drivers = new ArrayList<>();
+        drivers.add(driverOne);
+        drivers.add(driverTwo);
+        drivers.add(driverThree);
+
+        carOne.setDrivers(drivers);
+        carTwo.setDrivers(drivers);
+        carThree.setDrivers(drivers);
 
         CarService carService = (CarService) injector.getInstance(CarService.class);
 
