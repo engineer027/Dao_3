@@ -28,7 +28,9 @@ public class ManufacturerDaoJdbc implements ManufacturerDao {
             statement.setString(2, manufacturer.getCountry());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
-            manufacturer = createManufacturer(resultSet);
+            if (resultSet.next()) {
+                manufacturer.setId(resultSet.getLong(1));
+            }
         } catch (SQLException e) {
             throw new DataProcessingException("Could not create manufacturer" + manufacturer, e);
         }
