@@ -17,3 +17,9 @@ VALUES ('Skoda', 'PL');
 
 ALTER TABLE `taxi_service`.`manufacturer`
     ADD COLUMN `deleteManufacturer` TINYINT NOT NULL AFTER `countryManufacturer`;
+
+ALTER TABLE `taxi_service`.`manufacturer`
+    CHANGE COLUMN `idManufacturer` `id_manufacturer` BIGINT NOT NULL AUTO_INCREMENT ,
+    CHANGE COLUMN `nameManufacturer` `name_manufacturer` VARCHAR(225) NOT NULL ,
+    CHANGE COLUMN `countryManufacturer` `country_manufacturer` VARCHAR(225) NOT NULL ,
+    CHANGE COLUMN `deleteManufacturer` `delete_manufacturer` TINYINT NOT NULL DEFAULT '0' ;
