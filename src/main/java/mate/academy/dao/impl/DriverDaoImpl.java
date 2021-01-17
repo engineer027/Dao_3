@@ -8,7 +8,7 @@ import mate.academy.db.Storage;
 import mate.academy.lib.Dao;
 import mate.academy.model.Driver;
 
-@Dao
+
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {

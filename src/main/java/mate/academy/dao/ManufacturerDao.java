@@ -1,17 +1,7 @@
 package mate.academy.dao;
 
-import java.util.List;
-import java.util.Optional;
 import mate.academy.model.Manufacturer;
 
-public interface ManufacturerDao {
-    Manufacturer create(Manufacturer manufacturer);
+public interface ManufacturerDao extends GenericDao<Manufacturer, Long> {
 
-    Optional<Manufacturer> get(Long id);
-
-    Manufacturer update(Manufacturer manufacturer);
-
-    boolean delete(Long id);
-
-    List<Manufacturer> getAll();
 }
