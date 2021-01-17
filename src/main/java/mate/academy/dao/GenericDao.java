@@ -1,11 +1,9 @@
 package mate.academy.dao;
 
-import mate.academy.model.Car;
-
 import java.util.List;
 import java.util.Optional;
 
-public interface GenericDao <T, I>{
+public interface GenericDao<T, I> {
     T create(T value);
 
     Optional<T> get(I id);

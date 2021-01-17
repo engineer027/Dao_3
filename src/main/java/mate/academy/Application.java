@@ -42,11 +42,5 @@ public class Application {
         Driver driverKate = new Driver("Kate", "696");
         driverService.create(driverKate);
         System.out.println("Test method create " + driverService.getAll());
-
-
-
-
-
-
     }
 }

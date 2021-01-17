@@ -5,9 +5,7 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 import mate.academy.dao.DriverDao;
 import mate.academy.db.Storage;
-import mate.academy.lib.Dao;
 import mate.academy.model.Driver;
-
 
 public class DriverDaoImpl implements DriverDao {
     @Override
