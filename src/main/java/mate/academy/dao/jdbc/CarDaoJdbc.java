@@ -30,7 +30,7 @@ public class CarDaoJdbc implements CarDao {
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
-                car.setId(resultSet.getLong(1));
+                car.setId(resultSet.getObject(1, Long.class));
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Could not create car " + car, e);
@@ -84,7 +84,7 @@ public class CarDaoJdbc implements CarDao {
         String query = "UPDATE cars SET model_car = ?, "
                 + "manufacturer_id = ? WHERE id_car = ? "
                 + "AND delete_car = FALSE";
-        removeDriverFromCar(car);
+        deleteAllDriversFromCar(car);
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, car.getModel());
@@ -102,12 +102,11 @@ public class CarDaoJdbc implements CarDao {
 
     @Override
     public boolean delete(Long id) {
-        String query = "UPDATE cars SET delete_car = ? "
+        String query = "UPDATE cars SET delete_car = TRUE "
                 + "WHERE id_car = ? ";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setBoolean(1, true);
-            statement.setLong(2, id);
+            statement.setLong(1, id);
             int delete = statement.executeUpdate();
             return delete > 0;
         } catch (SQLException e) {
@@ -123,6 +122,7 @@ public class CarDaoJdbc implements CarDao {
                 + "JOIN cars_drivers ON cars.id_car = cars_drivers.id_car "
                 + "JOIN manufacturer ON cars.manufacturer_id = manufacturer.id_manufacturer "
                 + "WHERE cars_drivers.id_driver = ? "
+                + "AND delete_driver = FALSE "
                 + "AND delete_car = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
@@ -151,7 +151,7 @@ public class CarDaoJdbc implements CarDao {
         }
     }
 
-    private void removeDriverFromCar(Car car) {
+    private void deleteAllDriversFromCar(Car car) {
         String query = "DELETE FROM `cars_drivers` WHERE id_car = ?";
         ;
         try (Connection connection = ConnectionUtil.getConnection();
