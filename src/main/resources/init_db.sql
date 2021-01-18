@@ -77,3 +77,13 @@ COLLATE = utf8_bin;
 
 INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number_driver`) VALUES ('Bob', '777');
 INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number_driver`) VALUES ('Alice', '666');
+
+INSERT INTO `taxi_service`.`cars` (`model_car`, `manufacturer_id`) VALUES ('Fafia', '1');
+INSERT INTO `taxi_service`.`cars` (`model_car`, `manufacturer_id`) VALUES ('Lanos', '2');
+
+ALTER TABLE `taxi_service`.`cars`
+    CHANGE COLUMN `delete_car` `delete_car` TINYINT NOT NULL DEFAULT '0' ;
+
+ALTER TABLE `taxi_service`.`cars_drivers`
+    RENAME TO  `taxi_service`.`cars_drivers` ;
+
