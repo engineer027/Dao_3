@@ -1,5 +1,6 @@
 package mate.academy;
 
+import java.util.List;
 import mate.academy.lib.Injector;
 import mate.academy.model.Car;
 import mate.academy.model.Driver;
@@ -7,8 +8,6 @@ import mate.academy.model.Manufacturer;
 import mate.academy.service.CarService;
 import mate.academy.service.DriverService;
 import mate.academy.service.ManufacturerService;
-
-import java.util.List;
 
 public class Application {
 
@@ -44,33 +43,31 @@ public class Application {
         System.out.println("Test method getAll " + driverService.getAll());
 
         Driver driverKate = new Driver("Kate", "696");
-        driverService.create(driverKate); //
+        driverService.create(driverKate);
         System.out.println("Test method create " + driverService.getAll());
 
         CarService carService = (CarService) injector.getInstance(CarService.class);
         Car car = carService.get(1L);
         System.out.println("Test method get " + car.toString());
 
-        Car carBMW = new Car("X5", manufacturer1);
-        carService.create(carBMW); //
+        Car carBmw = new Car("X5", manufacturer1);
+        carService.create(carBmw);
         System.out.println("Test method create " + carService.getAll());
 
-        carBMW.setModel("X6");
-        carService.update(carBMW);
+        carBmw.setModel("X6");
+        carService.update(carBmw);
         System.out.println("Test method update " + carService.getAll());
 
         carService.delete(2L);
         System.out.println("Test method delete " + carService.getAll());
 
-        carService.addDriverToCar(driverKate, carBMW);
+        carService.addDriverToCar(driverKate, carBmw);
         System.out.println("Test method addDriverToCar " + carService.getAll());
 
         List<Car> allByDriver = carService.getAllByDriver(driverKate.getId());
         System.out.println("Test method getAllByDriver " + allByDriver.toString());
 
-        carService.removeDriverFromCar(driverKate, carBMW);
+        carService.removeDriverFromCar(driverKate, carBmw);
         System.out.println("Test method removeDriverFromCar " + carService.getAll());
-
-
     }
 }
