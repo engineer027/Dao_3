@@ -153,7 +153,6 @@ public class CarDaoJdbc implements CarDao {
 
     private void deleteAllDriversFromCar(Car car) {
         String query = "DELETE FROM `cars_drivers` WHERE id_car = ?";
-        ;
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, car.getId());

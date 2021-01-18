@@ -39,7 +39,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void addDriverToCar(Driver driver, Car car) { // реалізувати
+    public void addDriverToCar(Driver driver, Car car) {
         car.getDrivers().add(driver);
         carDao.update(car);
     }
