@@ -119,7 +119,8 @@ public class CarDaoJdbc  implements CarDao {
         String query = "SELECT cars.id_car, cars.model_car, cars.manufacturer_id, "
                 + "manufacturer.name_manufacturer, manufacturer.country_manufacturer "
                 + "FROM cars "
-                + "JOIN cars_drivers ON cars.manufacturer_id = cars_drivers.id_car "
+                + "JOIN cars_drivers ON cars.id_car = cars_drivers.id_car "
+                + "JOIN manufacturer ON cars.manufacturer_id = manufacturer.id_manufacturer "
                 + "WHERE cars_drivers.id_driver = ? "
                 + "AND delete_car = FALSE";
         List<Car> cars = new ArrayList<>();

@@ -8,6 +8,8 @@ import mate.academy.service.CarService;
 import mate.academy.service.DriverService;
 import mate.academy.service.ManufacturerService;
 
+import java.util.List;
+
 public class Application {
 
     private static final Injector injector = Injector.getInstance("mate.academy");
@@ -62,6 +64,9 @@ public class Application {
 
         carService.addDriverToCar(driverKate, carBMW);
         System.out.println("Test method addDriverToCar " + carService.getAll());
+
+        List<Car> allByDriver = carService.getAllByDriver(driverKate.getId());
+        System.out.println("Test method getAllByDriver " + allByDriver.toString());
 
         carService.removeDriverFromCar(driverKate, carBMW);
         System.out.println("Test method removeDriverFromCar " + carService.getAll());
