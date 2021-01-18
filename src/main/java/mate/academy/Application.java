@@ -44,7 +44,7 @@ public class Application {
         System.out.println("Test method getAll " + driverService.getAll());
 
         Driver driverKate = new Driver("Kate", "696");
-        driverService.create(driverKate);
+        driverService.create(driverKate); //
         System.out.println("Test method create " + driverService.getAll());
 
         CarService carService = (CarService) injector.getInstance(CarService.class);
@@ -52,7 +52,7 @@ public class Application {
         System.out.println("Test method get " + car.toString());
 
         Car carBMW = new Car("X5", manufacturer1);
-        carService.create(carBMW);
+        carService.create(carBMW); //
         System.out.println("Test method create " + carService.getAll());
 
         carBMW.setModel("X6");

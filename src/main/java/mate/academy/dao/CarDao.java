@@ -7,8 +7,4 @@ import mate.academy.model.Driver;
 public interface CarDao extends GenericDao<Car, Long> {
     List<Car> getAllByDriver(Long driverId);
 
-    void addDriverToCar(Driver driver, Car car);
-
-    void removeDriverFromCar(Driver driver, Car car);
-
 }
