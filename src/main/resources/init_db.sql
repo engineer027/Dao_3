@@ -18,19 +18,15 @@ ALTER TABLE `taxi_service`.`manufacturer`
     ADD COLUMN `deleted` TINYINT NOT NULL AFTER `country`;
 
 CREATE TABLE `taxi_service`.`drivers` (
-                                          `id` BIGINT NOT NULL,
+                                          `id` BIGINT NOT NULL AUTO_INCREMENT,
                                           `name_driver` VARCHAR(225) NOT NULL,
                                           `licence_number` VARCHAR(225) NOT NULL,
                                           `deleted` TINYINT NOT NULL DEFAULT 0,
                                           PRIMARY KEY (`id`),
-                                          UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
                                           UNIQUE INDEX `licence_number_UNIQUE` (`licence_number` ASC) VISIBLE)
     ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
-
-ALTER TABLE `taxi_service`.`drivers`
-    CHANGE COLUMN `id` `id` BIGINT NOT NULL AUTO_INCREMENT ;
 
 CREATE TABLE `taxi_service`.`cars` (
                                        `id` BIGINT NOT NULL AUTO_INCREMENT,
