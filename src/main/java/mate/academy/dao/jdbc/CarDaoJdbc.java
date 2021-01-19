@@ -126,7 +126,9 @@ public class CarDaoJdbc implements CarDao {
                 + "FROM cars c "
                 + "JOIN cars_drivers cd ON c.id = cd.id_car "
                 + "JOIN manufacturer m ON c.manufacturer_id = m.id "
+                + "JOIN drivers d ON d.id = cd.id_driver "
                 + "WHERE cd.id_driver = ? "
+                + "AND d.deleted = FALSE "
                 + "AND c.deleted = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
@@ -190,7 +192,7 @@ public class CarDaoJdbc implements CarDao {
                 + "cd.id_driver "
                 + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.id_driver = d.id "
-                + "WHERE cd.id_car = ?";
+                + "WHERE cd.id_car = ? AND d.beleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
