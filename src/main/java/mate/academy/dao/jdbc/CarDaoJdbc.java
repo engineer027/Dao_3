@@ -58,7 +58,6 @@ public class CarDaoJdbc implements CarDao {
         }
         if (car != null) {
             car.setDrivers(getDriversForCar(car.getId()));
-
         }
         return Optional.ofNullable(car);
     }
