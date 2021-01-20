@@ -23,10 +23,12 @@
             <td>
                 <c:out value="${driver.licenceNumber}"/>
             </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">Delete</a>
+            </td>
         </tr>
     </c:forEach>
 
 </table>
-<a href="${pageContext.request.contextPath}/">Go to the main page</a>
 </body>
 </html>
