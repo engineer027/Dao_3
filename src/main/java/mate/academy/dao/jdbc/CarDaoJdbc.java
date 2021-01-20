@@ -191,7 +191,7 @@ public class CarDaoJdbc implements CarDao {
                 + "cd.id_driver "
                 + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.id_driver = d.id "
-                + "WHERE cd.id_car = ? AND d.beleted = FALSE";
+                + "WHERE cd.id_car = ? AND d.deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
