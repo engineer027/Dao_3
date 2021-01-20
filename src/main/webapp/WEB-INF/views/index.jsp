@@ -9,6 +9,7 @@
 <a href="${pageContext.request.contextPath}/drivers/create">Create driver</a><br>
 <a href="${pageContext.request.contextPath}/cars/create">Create car</a><br>
 <a href="${pageContext.request.contextPath}/drivers/">Get all drivers</a><br>
+<a href="${pageContext.request.contextPath}/manufacturers/">Get all manufacturers</a><br>
 <a href="${pageContext.request.contextPath}/cars/drivers/add">Add drivers to car</a>
 </body>
 </html>
