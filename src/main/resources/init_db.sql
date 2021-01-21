@@ -63,8 +63,8 @@ CREATE TABLE `taxi_service`.`cars_drivers` (
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
-INSERT INTO `taxi_service`.`drivers` (`name`, `licence_number`) VALUES ('Bob', '777');
-INSERT INTO `taxi_service`.`drivers` (`name`, `licence_number`) VALUES ('Alice', '666');
+INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number`) VALUES ('Bob', '777');
+INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number`) VALUES ('Alice', '666');
 
 INSERT INTO `taxi_service`.`cars` (`model`, `manufacturer_id`) VALUES ('Fafia', '1');
 INSERT INTO `taxi_service`.`cars` (`model`, `manufacturer_id`) VALUES ('Lanos', '2');
