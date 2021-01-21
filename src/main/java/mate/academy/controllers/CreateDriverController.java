@@ -11,7 +11,7 @@ import mate.academy.service.DriverService;
 
 public class CreateDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate.academy");
-    DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
+    private final DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
