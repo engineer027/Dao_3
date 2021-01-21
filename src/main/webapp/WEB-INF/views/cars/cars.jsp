@@ -10,9 +10,9 @@
     <tr>
         <th>ID</th>
         <th>Model</th>
-        <th>Manufacturer name</th>
-        <th>Manufacturer Country</th>
-        <th>Driver name</th>
+        <th>Manufacturer</th>
+        <th>Drivers</th>
+        <th>Delete</th>
     </tr>
     <c:forEach var="car" items="${cars}">
         <tr>
