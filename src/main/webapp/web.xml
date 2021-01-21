@@ -85,6 +85,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>allMyCars</servlet-name>
+        <servlet-class>mate.academy.controllers.drivers.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allMyCars</servlet-name>
+        <url-pattern>/cars/my</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>allCars</servlet-name>
         <servlet-class>mate.academy.controllers.cars.DisplayAllCarsController</servlet-class>
     </servlet>
