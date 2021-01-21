@@ -63,11 +63,12 @@ CREATE TABLE `taxi_service`.`cars_drivers` (
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
-INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number`) VALUES ('Bob', '777');
-INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number`) VALUES ('Alice', '666');
-
 INSERT INTO `taxi_service`.`cars` (`model`, `manufacturer_id`) VALUES ('Fafia', '1');
 INSERT INTO `taxi_service`.`cars` (`model`, `manufacturer_id`) VALUES ('Lanos', '2');
 
+ALTER TABLE `taxi_service`.`drivers`
+    ADD COLUMN `login` VARCHAR(225) NOT NULL UNIQUE AFTER `licence_number`,
+    ADD COLUMN `password` VARCHAR(225) NOT NULL AFTER `login`;
 
-
+INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number`, `login`, `password`) VALUES ('Bob', '777', 'Bob', '1234');
+INSERT INTO `taxi_service`.`drivers` (`name_driver`, `licence_number`, `login`, `password`) VALUES ('Alice', '666', 'Alice', '1234');

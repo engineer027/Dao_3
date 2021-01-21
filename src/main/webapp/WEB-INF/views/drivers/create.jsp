@@ -11,9 +11,13 @@
     <input type="text" name="name" required><br>
     Please provide licence number<br>
     <input type="text" name="licence_number" required><br>
+    Please provide login<br>
+    <input type="text" name="login" required><br>
+    Please provide password<br>
+    <input type="password" name="pwd" required><br>
     <input type="reset">
     <button type="submit">Register</button>
 </form>
-<a href="${pageContext.request.contextPath}/">Go to the main page</a>
+<a href="${pageContext.request.contextPath}/login">Go to the login page</a>
 </body>
 </html>

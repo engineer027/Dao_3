@@ -6,6 +6,8 @@ public class Driver {
     private Long id;
     private String name;
     private String licenceNumber;
+    private String login;
+    private String password;
 
     public Driver(String name, String licenceNumber) {
         this.name = name;
@@ -24,6 +26,14 @@ public class Driver {
         this.licenceNumber = licenceNumber;
     }
 
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,6 +44,14 @@ public class Driver {
 
     public String getLicenceNumber() {
         return licenceNumber;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
