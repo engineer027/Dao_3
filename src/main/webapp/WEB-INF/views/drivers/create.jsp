@@ -10,7 +10,7 @@
     Please provide driver name<br>
     <input type="text" name="name" required><br>
     Please provide licence number<br>
-    <input type="text" name="licenceNumber" required><br>
+    <input type="text" name="licence_number" required><br>
     <input type="reset">
     <button type="submit">Register</button>
 </form>

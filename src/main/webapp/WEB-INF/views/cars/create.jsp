@@ -10,7 +10,7 @@
     Please provide model name<br>
     <input type="text" name="model" required><br>
     Please provide manufacturer id<br>
-    <input type="number" name="manufacturerId" required><br>
+    <input type="number" name="manufacturer_id" required><br>
     <input type="reset">
     <button type="submit">Register</button>
 </form>
