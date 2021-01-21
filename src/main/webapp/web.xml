@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>allDrivers</servlet-name>
-        <servlet-class>mate.academy.controllers.DisplayAllDriversController</servlet-class>
+        <servlet-class>mate.academy.controllers.drivers.DisplayAllDriversController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allDrivers</servlet-name>
@@ -23,7 +23,7 @@
 
     <servlet>
         <servlet-name>CreateManufacturer</servlet-name>
-        <servlet-class>mate.academy.controllers.CreateManufacturerController</servlet-class>
+        <servlet-class>mate.academy.controllers.manufacturer.CreateManufacturerController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateManufacturer</servlet-name>
@@ -32,7 +32,7 @@
 
     <servlet>
         <servlet-name>CreateDriver</servlet-name>
-        <servlet-class>mate.academy.controllers.CreateDriverController</servlet-class>
+        <servlet-class>mate.academy.controllers.drivers.CreateDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateDriver</servlet-name>
@@ -41,7 +41,7 @@
 
     <servlet>
         <servlet-name>CreateCar</servlet-name>
-        <servlet-class>mate.academy.controllers.CreateCarController</servlet-class>
+        <servlet-class>mate.academy.controllers.cars.CreateCarController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateCar</servlet-name>
@@ -50,7 +50,7 @@
 
     <servlet>
         <servlet-name>addDriverToCar</servlet-name>
-        <servlet-class>mate.academy.controllers.AddDriverToCarController</servlet-class>
+        <servlet-class>mate.academy.controllers.cars.AddDriverToCarController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addDriverToCar</servlet-name>
@@ -59,7 +59,7 @@
 
     <servlet>
         <servlet-name>deleteDriver</servlet-name>
-        <servlet-class>mate.academy.controllers.DeleteDriverController</servlet-class>
+        <servlet-class>mate.academy.controllers.drivers.DeleteDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteDriver</servlet-name>
@@ -68,7 +68,7 @@
 
     <servlet>
         <servlet-name>allManufacturers</servlet-name>
-        <servlet-class>mate.academy.controllers.DisplayAllManufacturersController</servlet-class>
+        <servlet-class>mate.academy.controllers.manufacturer.DisplayAllManufacturersController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allManufacturers</servlet-name>
@@ -77,7 +77,7 @@
 
     <servlet>
         <servlet-name>deleteManufacturer</servlet-name>
-        <servlet-class>mate.academy.controllers.DeleteManufacturerController</servlet-class>
+        <servlet-class>mate.academy.controllers.manufacturer.DeleteManufacturerController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteManufacturer</servlet-name>
@@ -86,7 +86,7 @@
 
     <servlet>
         <servlet-name>allCars</servlet-name>
-        <servlet-class>mate.academy.controllers.DisplayAllCarsController</servlet-class>
+        <servlet-class>mate.academy.controllers.cars.DisplayAllCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
@@ -95,7 +95,7 @@
 
     <servlet>
         <servlet-name>deleteCar</servlet-name>
-        <servlet-class>mate.academy.controllers.DeleteCarController</servlet-class>
+        <servlet-class>mate.academy.controllers.cars.DeleteCarController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteCar</servlet-name>
