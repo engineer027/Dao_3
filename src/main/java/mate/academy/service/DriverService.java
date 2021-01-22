@@ -1,7 +1,6 @@
 package mate.academy.service;
 
 import java.util.List;
-import java.util.Optional;
 import mate.academy.model.Driver;
 
 public interface DriverService {
@@ -15,5 +14,5 @@ public interface DriverService {
 
     boolean delete(Long id);
 
-    Optional<Driver> findByLogin(String login);
+    Driver findByLogin(String login);
 }

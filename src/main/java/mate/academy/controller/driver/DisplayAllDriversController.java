@@ -1,14 +1,16 @@
-package mate.academy.controllers.drivers;
+package mate.academy.controller.driver;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mate.academy.lib.Injector;
+import mate.academy.model.Driver;
 import mate.academy.service.DriverService;
 
-public class DeleteDriverController extends HttpServlet {
+public class DisplayAllDriversController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate.academy");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
@@ -16,8 +18,9 @@ public class DeleteDriverController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Long id = Long.valueOf(req.getParameter("id"));
-        driverService.delete(id);
-        resp.sendRedirect(req.getContextPath() + "/drivers/");
+
+        List<Driver> allDrivers = driverService.getAll();
+        req.setAttribute("drivers", allDrivers);
+        req.getRequestDispatcher("/WEB-INF/views/drivers/drivers.jsp").forward(req, resp);
     }
 }
