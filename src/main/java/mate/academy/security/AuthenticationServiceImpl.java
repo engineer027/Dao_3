@@ -1,5 +1,6 @@
 package mate.academy.security;
 
+import java.util.Optional;
 import mate.academy.dao.DriverDao;
 import mate.academy.exception.AuthenticationException;
 import mate.academy.lib.Dao;
@@ -12,11 +13,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private DriverDao driverDao;
 
     @Override
-    public Driver login(String login, String password) throws AuthenticationException {
-        Driver driverFromDB = driverDao.findByLogin(login)
-                .orElseThrow(() -> new AuthenticationException("Incorrect login or password"));
-
-        if (driverFromDB.getPassword().equals(password)) {
+    public Optional<Driver> login(String login, String password) throws AuthenticationException {
+        Optional<Driver> driverFromDB = driverDao.findByLogin(login);
+        if (driverFromDB.isPresent() && driverFromDB.get().getPassword().equals(password)) {
             return driverFromDB;
         }
         throw new AuthenticationException("Incorrect login or password");
