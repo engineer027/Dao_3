@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
         String pwd = req.getParameter("pwd");
 
         try {
-            Driver driver = authenticationService.login(login, pwd).get();
+            Driver driver = authenticationService.login(login, pwd);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
         } catch (AuthenticationException e) {
