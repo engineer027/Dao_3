@@ -1,4 +1,4 @@
-package mate.academy.controllers;
+package mate.academy.controller.car;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

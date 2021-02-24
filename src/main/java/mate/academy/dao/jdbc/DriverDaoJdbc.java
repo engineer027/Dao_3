@@ -18,12 +18,15 @@ import mate.academy.util.ConnectionUtil;
 public class DriverDaoJdbc implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name_driver, licence_number) VALUES (?, ?);";
+        String query = "INSERT INTO drivers (name_driver, licence_number, login, password) "
+                + "VALUES (?, ?, ?, ?);";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query, Statement
                         .RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenceNumber());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -103,8 +106,29 @@ public class DriverDaoJdbc implements DriverDao {
         Long idDriver = resultSet.getObject("id", Long.class);
         String nameDriver = resultSet.getString("name_driver");
         String licenceNumberDriver = resultSet.getString("licence_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver(nameDriver, licenceNumberDriver);
         driver.setId(idDriver);
+        driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers where login = ?"
+                + " AND deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(createDriver(resultSet));
+            }
+        } catch (SQLException e) {
+            throw new DataProcessingException("Could not get driver by login" + login, e);
+        }
+        return Optional.empty();
     }
 }

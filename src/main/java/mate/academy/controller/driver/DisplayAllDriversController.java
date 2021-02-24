@@ -1,4 +1,4 @@
-package mate.academy.controllers;
+package mate.academy.controller.driver;
 
 import java.io.IOException;
 import java.util.List;
